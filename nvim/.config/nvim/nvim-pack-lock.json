@@ -13,7 +13,7 @@
       "src": "https://github.com/ngtuonghy/live-server-nvim"
     },
     "multicursor": {
-      "rev": "811681faf44d8031685614cc00a148cd3ece697c",
+      "rev": "704b99f10a72cc05d370cfeb294ff83412a8ab55",
       "src": "https://github.com/jake-stewart/multicursor.nvim",
       "version": "'1.0'"
     },
@@ -22,7 +22,7 @@
       "src": "https://github.com/brenton-leighton/multiple-cursors.nvim"
     },
     "neogit": {
-      "rev": "d3890fc3cdf0859845a86b2be306bba01458df1a",
+      "rev": "64b1a01a9fc3d3ee8b2368230563bedf3eb66e54",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "oil": {
@@ -38,7 +38,7 @@
       "src": "https://github.com/Aasim-A/scrollEOF.nvim"
     },
     "scrollBeforeEOF": {
-      "rev": "d8047219f23208ca35d72c80ae74b2635808bebd",
+      "rev": "c527a1d97317ffca92ef7f7703e29bb9f0d2db20",
       "src": "https://github.com/emdrs/scrollBeforeEOF"
     },
     "telescope": {
