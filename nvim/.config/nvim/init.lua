@@ -19,19 +19,19 @@ keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Close search highlight
 
 -- Aliases
 vim.cmd([[
-  cnoreabbrev W w
-  cnoreabbrev Q q
-  cnoreabbrev W! w!
-  cnoreabbrev Q! q!
-  cnoreabbrev Qa qa
-  cnoreabbrev Qa! qa!
-  cnoreabbrev QA! qa!
-  cnoreabbrev Wa wa
-  cnoreabbrev Wq wq
-  cnoreabbrev WA wa
-  cnoreabbrev WQ wq
-  cnoreabbrev Wqa wqa
-  cnoreabbrev WQa wqa
+    cnoreabbrev W w
+    cnoreabbrev Q q
+    cnoreabbrev W! w!
+    cnoreabbrev Q! q!
+    cnoreabbrev Qa qa
+    cnoreabbrev Qa! qa!
+    cnoreabbrev QA! qa!
+    cnoreabbrev Wa wa
+    cnoreabbrev Wq wq
+    cnoreabbrev WA wa
+    cnoreabbrev WQ wq
+    cnoreabbrev Wqa wqa
+    cnoreabbrev WQa wqa
 ]])
 
 local pack = vim.pack
@@ -231,3 +231,16 @@ require("scrollBeforeEOF").setup()
 pack.add{{ name="vimtex", src="https://github.com/lervag/vimtex" }}
 
 vim.g.vimtex_view_method = "skim"
+vim.g.vimtex_compiler_method = "latexmk"
+
+vim.g.vimtex_compiler_latexmk = {
+    aux_dir = "aux",
+    options = {
+        "-pdf",
+        "-shell-escape",
+        "-verbose",
+        "-file-line-error",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+    },
+}
