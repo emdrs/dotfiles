@@ -2,6 +2,38 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 local keymap = vim.keymap
+
+-- Some basic configs
+
+vim.o.undofile = true      -- Undo even if close neovim
+vim.o.number = true        -- Show numbers in lines
+vim.o.tabstop = 4          -- A TAB character looks like 4 spaces
+vim.o.expandtab = true     -- Pressing the TAB key will insert spaces instead of a TAB character
+vim.o.softtabstop = 4      -- Number of spaces inserted instead of a TAB character
+vim.o.shiftwidth = 4       -- Number of spaces inserted when indenting
+vim.o.colorcolumn = "88"   -- Set a different color to the column 88 of each line
+vim.o.ignorecase = true    -- Find text will not be case sensitive
+vim.o.scrolloff = 20
+
+keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Close search highlight
+
+-- Aliases
+vim.cmd([[
+  cnoreabbrev W w
+  cnoreabbrev Q q
+  cnoreabbrev W! w!
+  cnoreabbrev Q! q!
+  cnoreabbrev Qa qa
+  cnoreabbrev Qa! qa!
+  cnoreabbrev QA! qa!
+  cnoreabbrev Wa wa
+  cnoreabbrev Wq wq
+  cnoreabbrev WA wa
+  cnoreabbrev WQ wq
+  cnoreabbrev Wqa wqa
+  cnoreabbrev WQa wqa
+]])
+
 local pack = vim.pack
 
 -- Plenary | Plugin toolkit | Some plugins depends on it
@@ -194,33 +226,8 @@ pack.add{{ name="scrollBeforeEOF", src="https://github.com/emdrs/scrollBeforeEOF
 
 require("scrollBeforeEOF").setup()
 
--- Some basic configs
+-- VimTeX | Support to latex
 
-vim.o.undofile = true      -- Undo even if close neovim
-vim.o.number = true        -- Show numbers in lines
-vim.o.tabstop = 4          -- A TAB character looks like 4 spaces
-vim.o.expandtab = true     -- Pressing the TAB key will insert spaces instead of a TAB character
-vim.o.softtabstop = 4      -- Number of spaces inserted instead of a TAB character
-vim.o.shiftwidth = 4       -- Number of spaces inserted when indenting
-vim.o.colorcolumn = "88"   -- Set a different color to the column 88 of each line
-vim.o.ignorecase = true    -- Find text will not be case sensitive
-vim.o.scrolloff = 20
+pack.add{{ name="vimtex", src="https://github.com/lervag/vimtex" }}
 
-keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Close search highlight
-
--- Aliases
-vim.cmd([[
-  cnoreabbrev W w
-  cnoreabbrev Q q
-  cnoreabbrev W! w!
-  cnoreabbrev Q! q!
-  cnoreabbrev Qa qa
-  cnoreabbrev Qa! qa!
-  cnoreabbrev QA! qa!
-  cnoreabbrev Wa wa
-  cnoreabbrev Wq wq
-  cnoreabbrev WA wa
-  cnoreabbrev WQ wq
-  cnoreabbrev Wqa wqa
-  cnoreabbrev WQa wqa
-]])
+vim.g.vimtex_view_method = "skim"
