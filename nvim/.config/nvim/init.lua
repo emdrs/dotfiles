@@ -306,3 +306,16 @@ lsp.config("ltex_plus",{
         }
     }
 })
+
+-- Mason | Easy installation of lsps and snippets
+
+pack.add { { name = "mason", src = "https://github.com/mason-org/mason.nvim" } }
+
+require("mason").setup()
+
+local installedPacks = require("mason-registry").get_installed_packages()
+local lspConfigNames = vim.iter(installedPacks):fold({}, function(acc, package)
+	table.insert(acc, package.spec.neovim and package.spec.neovim.lspconfig)
+	return acc
+end)
+vim.lsp.enable(lspConfigNames)
