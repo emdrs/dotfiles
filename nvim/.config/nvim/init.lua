@@ -353,3 +353,62 @@ require("blink.cmp").setup({
 
     fuzzy = { implementation = "prefer_rust_with_warning" }
 })
+
+-- DAP | Debug tool
+
+pack.add { { name="nio",    src="https://github.com/nvim-neotest/nvim-nio" } }
+pack.add { { name="dap",    src="https://github.com/mfussenegger/nvim-dap" } }
+pack.add { { name="dap-ui", src="https://github.com/rcarriga/nvim-dap-ui"  } }
+
+local dapui = require("dapui")
+local dap = require("dap")
+
+dapui.setup()
+
+dap.listeners.after.event_initialized["dapui_config"] = dapui.open
+dap.listeners.before.event_terminated["dapui_config"] = dapui.close
+dap.listeners.before.event_exited    ["dapui_config"] = dapui.close
+
+
+keymap.set("n", "<leader>dq", dapui.close)
+keymap.set("n", "<leader>dc", dap.continue)
+keymap.set("n", "<leader>dn", dap.step_over)
+keymap.set("n", "<leader>di", dap.step_into)
+keymap.set("n", "<leader>do", dap.step_out)
+keymap.set("n", "<leader>db", dap.toggle_breakpoint)
+keymap.set("n", "<leader>dT", dap.terminate)
+keymap.set("n", "<Leader>lp", function() dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end)
+keymap.set("n", "<Leader>dr", dap.repl.open)
+keymap.set("n", "<Leader>dl", dap.run_last)
+
+dap.adapters.lldb = {
+  type = "executable",
+  command = "/opt/homebrew/opt/llvm/bin/lldb-dap", -- adjust as needed, must be absolute path
+  name = "lldb"
+}
+
+local last_args = {""}
+
+dap.configurations.c = {
+  {
+    name = "Launch",
+    type = "lldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    end,
+    cwd = "${workspaceFolder}",
+    stopOnEntry = false,
+    args = function()
+        local default_text = table.concat(last_args, " ")
+        local args_string = vim.fn.input('Arguments: ', default_text)
+
+        if args_string == "" then
+            return {}
+        end
+        last_args = vim.split(args_string, " ")
+
+        return last_args
+    end,
+  },
+}
