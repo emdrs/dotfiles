@@ -319,3 +319,37 @@ local lspConfigNames = vim.iter(installedPacks):fold({}, function(acc, package)
 	return acc
 end)
 vim.lsp.enable(lspConfigNames)
+
+-- Blink-cmp | Better completions
+
+pack.add { { name = "friendly-snippets", src = "https://github.com/rafamadriz/friendly-snippets" } }
+pack.add { { name = "luasnip", src = "https://github.com/L3MON4D3/LuaSnip" } }
+pack.add { { name = "blink-cmp", src = "https://github.com/saghen/blink.cmp" } }
+
+require("blink.cmp").setup({
+    snippets = { preset = "luasnip" },
+
+    keymap = {
+        preset        = "none",
+        ["<C-space>"] = { "show" },
+
+        ["<C-p>"]     = { "select_prev", "fallback" },
+        ["<C-n>"]     = { "select_next", "fallback" },
+        ["<C-y>"]     = { "select_and_accept", "fallback" },
+
+        ["<C-b>"]     = { "scroll_documentation_up", "fallback" },
+        ["<C-f>"]     = { "scroll_documentation_down", "fallback" },
+
+        ["<Tab>"]     = { "snippet_forward", "fallback" },
+        ["<S-Tab>"]   = { "snippet_backward", "fallback" }
+    },
+
+    completion = {
+        documentation = { auto_show = true, auto_show_delay_ms = 500 }
+    },
+    signature = { enabled = true },
+
+    sources = { default = { "lsp", "path", "snippets", "buffer" } },
+
+    fuzzy = { implementation = "prefer_rust_with_warning" }
+})
