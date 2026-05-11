@@ -15,6 +15,8 @@ vim.o.colorcolumn = "88" -- Set a different color to the column 88 of each line
 vim.o.ignorecase = true  -- Find text will not be case sensitive
 vim.o.scrolloff = 20
 
+vim.g.c_syntax_for_h = 1 -- Detect .h as c, not cpp
+
 -- Aliases
 vim.cmd([[
     cnoreabbrev W w
