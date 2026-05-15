@@ -101,3 +101,9 @@ vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
 vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
 vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
 vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+
+vim.opt.whichwrap:remove("h")
+
+-- scrollBeforeEOF | Keep scrolloff at bottom of file
+pack.add { { name = "scrollBeforeEOF", src = "https://github.com/emdrs/scrollBeforeEOF" } }
+require("scrollBeforeEOF").setup()

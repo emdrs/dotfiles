@@ -15,6 +15,10 @@
     "opencode.nvim": {
       "rev": "a89f9b90e2709f7350743bf2d38e80bc4fd5379d",
       "src": "https://github.com/nickjvandyke/opencode.nvim"
+    },
+    "scrollBeforeEOF": {
+      "rev": "307430a03f6ad17ce90fff769e4a3fcc3c393bb2",
+      "src": "https://github.com/emdrs/scrollBeforeEOF"
     }
   }
 }
