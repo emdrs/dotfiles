@@ -46,3 +46,27 @@ local pack = vim.pack
 -- Catppuccin | Colorscheme
 pack.add { { name = "catppuccin", src = "https://github.com/catppuccin/nvim" } }
 vim.cmd.colorscheme "catppuccin-nvim"
+-- Neogit | Git interface
+pack.add { { name = "neogit", src = "https://github.com/NeogitOrg/neogit" } }
+
+require("neogit").setup {
+  disable_line_numbers = true,
+  disable_relative_line_numbers = true,
+  kind = "floating",
+  commit_editor = { kind = "floating" },
+  commit_select_view = { kind = "floating" },
+  commit_view = { kind = "floating" },
+  log_view = { kind = "floating" },
+  rebase_editor = { kind = "floating" },
+  reflog_view = { kind = "floating" },
+  merge_editor = { kind = "floating" },
+  preview_buffer = { kind = "floating" },
+  stash = { kind = "floating" },
+  refs_view = { kind = "floating" },
+  popup = { kind = "floating" },
+  status = {
+    recent_commit_count = 5,
+  },
+}
+
+vim.keymap.set("n", "<leader>gg", function() require("neogit").open({ kind = "floating" }) end, { desc = "Open Neogit" })
