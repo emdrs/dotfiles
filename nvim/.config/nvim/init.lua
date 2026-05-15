@@ -88,3 +88,16 @@ require("neogit").setup {
 }
 
 vim.keymap.set("n", "<leader>gg", function() require("neogit").open({ kind = "floating" }) end, { desc = "Open Neogit" })
+
+-- nvim-tmux-navigation | Navigate between nvim and tmux panes
+pack.add { { name = "nvim-tmux-navigation", src = "https://github.com/alexghergh/nvim-tmux-navigation" } }
+
+local nvim_tmux_nav = require("nvim-tmux-navigation")
+nvim_tmux_nav.setup {
+  disable_when_zoomed = true,
+}
+
+vim.keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
