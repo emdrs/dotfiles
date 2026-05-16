@@ -124,3 +124,60 @@ require("oil").setup {
 }
 
 vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open oil file explorer" })
+
+-- multiple-cursors.nvim | Multiple cursors
+pack.add { { name = "multiple-cursors.nvim", src = "https://github.com/brenton-leighton/multiple-cursors.nvim" } }
+
+require("multiple-cursors").setup {
+    remove_in_opposite_direction = false,
+}
+
+vim.keymap.set("n", "<A-Up>",    "<cmd>MultipleCursorsAddUp<CR>",            { desc = "Add cursor up" })
+vim.keymap.set("n", "<A-Down>",  "<cmd>MultipleCursorsAddDown<CR>",          { desc = "Add cursor down" })
+vim.keymap.set("n", "<leader>a", "<cmd>MultipleCursorsAddMatches<CR>",       { desc = "Select all matches" })
+vim.keymap.set("n", "<leader>n", "<cmd>MultipleCursorsAddJumpNextMatch<CR>", { desc = "Add cursor at next match" })
+vim.keymap.set("n", "<leader>p", "<cmd>MultipleCursorsAddJumpPrevMatch<CR>", { desc = "Add cursor at previous match" })
+
+-- plenary.nvim | Dependency for telescope
+pack.add { { name = "plenary.nvim", src = "https://github.com/nvim-lua/plenary.nvim" } }
+
+-- telescope.nvim | Fuzzy finder
+pack.add { { name = "telescope.nvim", src = "https://github.com/nvim-telescope/telescope.nvim" } }
+pack.add { { name = "telescope-fzf-native.nvim", src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" } }
+
+local telescope = require("telescope")
+telescope.setup {
+    defaults = {
+        prompt_prefix = " ",
+        selection_caret = " ",
+        entry_prefix = " ",
+        initial_mode = "insert",
+        selection_strategy = "reset",
+        sorting_strategy = "ascending",
+        layout_strategy = "horizontal",
+        layout_config = {
+            horizontal = {
+                prompt_position = "top",
+                preview_width = 0.55,
+                results_width = 0.8,
+            },
+            width = 0.87,
+            height = 0.80,
+        },
+        file_ignore_patterns = { "node_modules", ".git", "dist", "build" },
+        path_display = { "truncate" },
+        winblend = 0,
+        border = {},
+        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+        colorize = true,
+    },
+}
+
+telescope.load_extension("fzf")
+
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>",  { desc = "Live grep" })
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>",    { desc = "Buffers" })
+vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>",  { desc = "Help tags" })
+vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>",   { desc = "Recent files" })
+vim.keymap.set("n", "<leader>fc", "<cmd>Telescope commands<CR>",   { desc = "Commands" })
