@@ -228,4 +228,18 @@ pack.add { { src = "https://github.com/romus204/tree-sitter-manager.nvim" } }
 
 require("tree-sitter-manager").setup()
 
-keymap.set("n", "<leader>tsm", "<cmd>TSManager<CR>", { desc = "Show TSManager" })
+keymap.set("n", "<leader>tm", "<cmd>TSManager<CR>", { desc = "Show TSManager" })
+
+-- live-server-nvim | Live server for HTML/CSS/JS development
+pack.add { { src = "https://github.com/ngtuonghy/live-server-nvim" } }
+
+require("live-server-nvim").setup {
+    custom = {
+        "--port=8080",
+        "--no-css-inject",
+    },
+ serverPath = vim.fn.stdpath("data") .. "/live-server/", --default
+ open = "folder", -- folder|cwd     --default
+}
+
+keymap.set("n", "<leader>lt", "<cmd>LiveServerToggle<CR>", { desc = "Show TSManager" })
