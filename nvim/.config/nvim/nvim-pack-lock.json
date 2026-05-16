@@ -12,12 +12,16 @@
       "rev": "4898c98702954439233fdaf764c39636681e2861",
       "src": "https://github.com/alexghergh/nvim-tmux-navigation"
     },
+    "oil.nvim": {
+      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
     "opencode.nvim": {
-      "rev": "a89f9b90e2709f7350743bf2d38e80bc4fd5379d",
+      "rev": "3196b61c566abf753ab79d5e1d2cf190f72a7326",
       "src": "https://github.com/nickjvandyke/opencode.nvim"
     },
     "scrollBeforeEOF": {
-      "rev": "307430a03f6ad17ce90fff769e4a3fcc3c393bb2",
+      "rev": "8dd0299e46d40428bfb5232b0cd05b8f46181651",
       "src": "https://github.com/emdrs/scrollBeforeEOF"
     }
   }

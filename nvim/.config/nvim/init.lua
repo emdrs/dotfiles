@@ -87,7 +87,9 @@ require("neogit").setup {
   },
 }
 
-vim.keymap.set("n", "<leader>gg", function() require("neogit").open({ kind = "floating" }) end, { desc = "Open Neogit" })
+vim.keymap.set("n", "<leader>gg",
+    function() require("neogit").open({ kind = "floating" }) end,
+    { desc = "Open Neogit" })
 
 -- nvim-tmux-navigation | Navigate between nvim and tmux panes
 pack.add { { name = "nvim-tmux-navigation", src = "https://github.com/alexghergh/nvim-tmux-navigation" } }
@@ -102,8 +104,23 @@ vim.keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
 vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
 vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
 
-vim.opt.whichwrap:remove("h")
-
 -- scrollBeforeEOF | Keep scrolloff at bottom of file
 pack.add { { name = "scrollBeforeEOF", src = "https://github.com/emdrs/scrollBeforeEOF" } }
 require("scrollBeforeEOF").setup()
+
+-- oil.nvim | File explorer
+pack.add { { name = "oil.nvim", src = "https://github.com/stevearc/oil.nvim" } }
+require("oil").setup {
+    default_file_explorer = true,
+    delete_to_trash = true,
+    columns = { "permissions", "size", "mtime" },
+    skip_confirm_for_simple_edits = true,
+    view_options = { show_hidden = true },
+    use_default_keymaps = false,
+    keymaps = {
+        ["<CR>"] = "actions.select",
+        ["-"] = { "actions.parent", mode = "n" },
+    }
+}
+
+vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open oil file explorer" })
