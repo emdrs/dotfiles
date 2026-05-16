@@ -4,6 +4,10 @@
       "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",
       "src": "https://github.com/catppuccin/nvim"
     },
+    "compile-mode.nvim": {
+      "rev": "dd3e952076a33faba0a55b04b2b73945832c0527",
+      "src": "https://github.com/ej-shafran/compile-mode.nvim"
+    },
     "multiple-cursors.nvim": {
       "rev": "eae76d4c5f7ede2d45746dc2affb5e7a139e4aa8",
       "src": "https://github.com/brenton-leighton/multiple-cursors.nvim"

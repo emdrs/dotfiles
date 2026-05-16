@@ -199,3 +199,12 @@ vim.g.vimtex_compiler_latexmk = {
     },
 }
 
+-- compile-mode.nvim | Run compilation commands
+pack.add { { name = "compile-mode.nvim", src = "https://github.com/ej-shafran/compile-mode.nvim" } }
+
+vim.g.compile_mode = {
+    default_command = "",
+    focus_compilation_buffer = true,
+}
+
+vim.keymap.set("n", "<leader>cc", "<cmd>Compile<CR>", { desc = "Run compile command" })
