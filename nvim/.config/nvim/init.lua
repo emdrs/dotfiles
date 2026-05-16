@@ -17,6 +17,15 @@ vim.o.scrolloff = 20
 
 vim.g.c_syntax_for_h = 1 -- Detect .h as c, not cpp
 
+vim.opt.laststatus = 3  -- Transforma a statusline em uma barra única e global
+
+vim.opt.statusline:append(" %{v:lua.get_buffer_lang()}")
+
+function get_buffer_lang()
+    local ft = vim.bo.filetype
+    return vim.treesitter.language.get_lang(ft) or ft
+end
+
 -- Aliases
 vim.cmd([[
     cnoreabbrev W w
