@@ -181,3 +181,21 @@ vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>",    { desc = "Buf
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>",  { desc = "Help tags" })
 vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>",   { desc = "Recent files" })
 vim.keymap.set("n", "<leader>fc", "<cmd>Telescope commands<CR>",   { desc = "Commands" })
+
+-- vimtex | LaTeX editing
+pack.add { { name = "vimtex", src = "https://github.com/lervag/vimtex" } }
+
+vim.g.vimtex_view_method = "skim"
+vim.g.vimtex_compiler_method = "latexmk"
+vim.g.vimtex_compiler_latexmk = {
+    aux_dir = "aux",
+    options = {
+        "-pdf",
+        "-shell-escape",
+        "-verbose",
+        "-file-line-error",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+    },
+}
+
