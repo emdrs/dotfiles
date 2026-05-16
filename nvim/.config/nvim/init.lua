@@ -208,3 +208,8 @@ vim.g.compile_mode = {
 }
 
 vim.keymap.set("n", "<leader>cc", "<cmd>Compile<CR>", { desc = "Run compile command" })
+
+-- tree-sitter-manager.nvim | Tree-sitter installation manager
+pack.add { { name = "tree-sitter-manager.nvim", src = "https://github.com/romus204/tree-sitter-manager.nvim" } }
+
+require("tree-sitter-manager").setup()

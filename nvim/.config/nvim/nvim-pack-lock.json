@@ -44,6 +44,10 @@
       "rev": "7d324792b7943e4aa16ad007212e6acc6f9fe335",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
+    "tree-sitter-manager.nvim": {
+      "rev": "bfb85e965ab988b9c158ee4b583c1d0097221687",
+      "src": "https://github.com/romus204/tree-sitter-manager.nvim"
+    },
     "vimtex": {
       "rev": "182ad387e3f3107699483606c9a2b6648f8437b2",
       "src": "https://github.com/lervag/vimtex"
