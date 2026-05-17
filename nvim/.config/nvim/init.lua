@@ -49,7 +49,15 @@ vim.cmd([[
 ]])
 
 -- Keymaps
-keymap.set({ "n" }, "<Esc>", "<cmd>nohlsearch<CR>")
+keymap.set({ "n" }, "<Esc>", "<cmd>nohlsearch<CR>") -- Clear search
+
+keymap.set("n", "<leader>cd", function() -- Change working directory (neogit, telescope)
+    local buf_dir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":p:h")
+    if buf_dir ~= "" then
+        vim.fn.chdir(buf_dir)
+        print("new cwd: " .. buf_dir)
+    end
+end, { desc = "Change cwd to buffer's directory" })
 
 ----------------------------------------------------------------------------------------
 --- Plugins
