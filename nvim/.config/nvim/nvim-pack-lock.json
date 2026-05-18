@@ -41,7 +41,7 @@
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "opencode.nvim": {
-      "rev": "6b5acdcb4b2268c3a2b4b791457bf5b12e38e1bb",
+      "rev": "05547308bb931dc5da80a81d282f18e581788752",
       "src": "https://github.com/nickjvandyke/opencode.nvim"
     },
     "plenary.nvim": {
@@ -49,7 +49,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "scrollBeforeEOF": {
-      "rev": "8dd0299e46d40428bfb5232b0cd05b8f46181651",
+      "rev": "4373cfafdb84f55bc25bd68c31b3778212d14359",
       "src": "https://github.com/emdrs/scrollBeforeEOF"
     },
     "telescope-fzf-native.nvim": {
@@ -61,7 +61,7 @@
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
     "tree-sitter-manager.nvim": {
-      "rev": "bfb85e965ab988b9c158ee4b583c1d0097221687",
+      "rev": "9e34b54ac652876953f0e55f879fe5652a6c86dd",
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "vimtex": {
