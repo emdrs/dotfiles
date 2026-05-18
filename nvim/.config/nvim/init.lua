@@ -76,8 +76,7 @@ vim.g.opencode_opts = {}
 
 vim.o.autoread = true
 
-keymap.set({ "n", "x" }, "<leader>oa", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode…" })
-keymap.set({ "v", "x" }, "<leader>oa", function() require("opencode").ask("@selection: ", { submit = true }) end, { desc = "Ask opencode…" })
+keymap.set({ "n", "v", "x" }, "<leader>oa", function() require("opencode").ask("@this: ", { submit = true }) end, { desc = "Ask opencode…" })
 keymap.set({ "n", "x" }, "<leader>ox", function() require("opencode").select() end,                          { desc = "Execute opencode action…" })
 keymap.set({ "n", "t" }, "<leader>ot", function() require("opencode").toggle() end,                          { desc = "Toggle opencode" })
 
