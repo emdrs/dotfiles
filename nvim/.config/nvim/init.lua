@@ -122,10 +122,10 @@ nvim_tmux_nav.setup {
   disable_when_zoomed = true,
 }
 
-keymap.set("n", "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
-keymap.set("n", "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
-keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
-keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+keymap.set({ "n", "t" }, "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
+keymap.set({ "n", "t" }, "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
+keymap.set({ "n", "t" }, "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
+keymap.set({ "n", "t" }, "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
 
 -- scrollBeforeEOF | Keep scrolloff at bottom of file
 pack.add { { src = "https://github.com/emdrs/scrollBeforeEOF" } }
