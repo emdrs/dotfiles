@@ -51,12 +51,24 @@ vim.cmd([[
 -- Keymaps
 keymap.set({ "n" }, "<Esc>", "<cmd>nohlsearch<CR>") -- Clear search
 
-keymap.set("n", "<leader>cd", function() -- Change working directory (neogit, telescope)
-    local buf_dir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":p:h")
-    if buf_dir ~= "" then
-        vim.fn.chdir(buf_dir)
-        print("new cwd: " .. buf_dir)
+keymap.set("n", "<leader>cd", function() -- Change working directory
+    local buf_name = vim.api.nvim_buf_get_name(0)
+    local buf_dir = vim.fn.fnamemodify(buf_name, ":p:h")
+    if buf_name:match("^oil://") then
+        local ok, oil = pcall(require, "oil")
+        if ok and oil.get_current_dir() then
+            buf_dir = oil.get_current_dir()
+        end
     end
+    if buf_dir == "" or buf_dir == nil then
+        buf_dir = vim.fn.getcwd()
+    end
+    vim.ui.input({ prompt = "New cwd: ", default = buf_dir }, function(input)
+        if input and input ~= "" then
+            vim.fn.chdir(input)
+            print("new cwd: " .. input)
+        end
+    end)
 end, { desc = "Change cwd to buffer's directory" })
 
 ----------------------------------------------------------------------------------------
